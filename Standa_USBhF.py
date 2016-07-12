@@ -13,8 +13,9 @@ class ListDevices(object):
 class ControllerInterface(object):
     device_id = 0
 
-    def __init__(self, device_id):
+    def __init__(self, device_id, reverse = False):
         self.device_id = device_id
+        self.reverse = reverse
 
     def talk(self, parameterString = ""):
         fileLocation = "binaries\StandaStepperMotorController.exe " + \
@@ -29,9 +30,13 @@ class ControllerInterface(object):
         return self.talk("off")
 
     def step(self, steps):
+        if self.reverse:
+            steps = steps * -1
         return self.talk("step " + str(steps))
 
     def goToPosition(self, position):
+        if self.reverse:
+            position = position * -1
         return self.talk("goto " + str(position))
 
     def stop(self):
