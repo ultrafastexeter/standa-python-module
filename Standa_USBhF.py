@@ -3,10 +3,11 @@ import subprocess
 
 class ListDevices(object):
 
+    @staticmethod
     def getDeviceID(id_code):
-        fileLocation = "./binaries/ListConnectedStandaDevices.exe"
+        fileLocation = "binaries\ListConnectedStandaDevices.exe " + str(id_code)
         ID = subprocess.Popen(fileLocation, creationflags=0x08000000)
-        ID.wait()
+        return ID.wait()
 
 
 class ControllerInterface(object):
@@ -15,12 +16,11 @@ class ControllerInterface(object):
     def __init__(self, device_id):
         self.device_id = device_id
 
-    def talk(self, parameterString):
-        fileLocation = "./binaries/StandaStepperMotorController.exe " + \
+    def talk(self, parameterString = ""):
+        fileLocation = "binaries\StandaStepperMotorController.exe " + \
             str(self.device_id) + " " + parameterString
         result = subprocess.Popen(fileLocation, creationflags=0x08000000)
-        result.wait()
-        return result
+        return result.wait()
 
     def powerOn(self):
         return self.talk("on")
