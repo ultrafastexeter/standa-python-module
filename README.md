@@ -59,7 +59,7 @@ e.g. ```StandaStepperMotorController.exe 1 setHome``` - sets the current positio
 ##### Stop
 The stop command immediately stops the movement of the motor.
 
-e.g. e.g. ```StandaStepperMotorController.exe 1 stop``` - stops the motor connected to controller 1.
+e.g. ```StandaStepperMotorController.exe 1 stop``` - stops the motor connected to controller 1.
 
 ##### Close
 To close the connection with the USMCDLL.dll module to allow it close, append ```close``` to the end of the execution command.
