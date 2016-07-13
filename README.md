@@ -1,6 +1,6 @@
-# Python Module for Standa 8SMC1-USBhF Stepper Motor Controller
+# Python Module for Standa 8SMC1-USBhF
 
-Python module for controlling Standa 8SMC1-USBhF Stepper Motor Controller connected to a Windows PC over USB.
+Python module for controlling Standa 8SMC1-USBhF Motor Controller connected to a Windows PC over USB.
 
 ## Dependencies
 * Windows Only - Tested on Windows 7 and 10
