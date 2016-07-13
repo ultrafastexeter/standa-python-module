@@ -11,4 +11,4 @@ The ```binaries``` folder contains two executables:
 
 * ```ListConnectedStandaDevices.exe``` - Prints the currently connected Standa devices connected to the system to the command line, showing the current device ID and the serial number for each device. If the last four characters are entered as the first parameter, the program will return the device id of that controller as its return code, provided the device is connected to the system.
 
-* ```StandaStepperMotorController.exe```
+* ```StandaStepperMotorController.exe``` - 
