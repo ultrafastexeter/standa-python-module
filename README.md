@@ -1,6 +1,6 @@
 # Python Module for Standa 8SMC1-USBhF
 
-Python module for controlling Standa 8SMC1-USBhF Motor Controller connected to a Windows PC over USB.
+Python module for controlling Standa 8SMC1-USBhF Motor Controller connected to a Windows PC over USB. Developed by Sam Hutchings whilst working on a student Summer Research Project in the Physics department at the [University of Exeter](http://emps.exeter.ac.uk/physics-astronomy/).
 
 ## Dependencies
 * Windows Only - Tested on Windows 7 and 10
