@@ -9,13 +9,13 @@ Python modules for controlling Standa 8SMC1-USBhF Motor Controller connected to 
 ## Binaries
 The ```binaries``` folder contains two executables:
 
-### ```ListConnectedStandaDevices.exe```
+### ListConnectedStandaDevices.exe
 
 Prints the currently connected Standa devices connected to the system to the command line, showing the current device ID and the serial number for each device. If the last four characters are entered as the first parameter, the program will return the device id of that controller as its return code, provided the device is connected to the system.
 
 e.g. ```ListConnectedStandaDevices.exe 4298``` - returns the device ID of that controller using as the program's return code.
 
-### ```StandaStepperMotorController.exe```
+### StandaStepperMotorController.exe
 
 Interfaces with the motor controller. Can be provided with a variety of parameters to execute operations. A short delay is built into each command so they will in most cases return after *100ms*. This is to prevent the execution of commands dependent on a change a previous command makes, executing before that change has been made, reducing the likelihood of unexpected behaviours which emerged during testing.
 
