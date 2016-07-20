@@ -1,27 +1,39 @@
 import subprocess
+import platform
 
 
 class ListDevices(object):
 
     @staticmethod
     def getDeviceID(id_code):
-        fileLocation = "binaries\ListConnectedStandaDevices.exe " + str(id_code)
-        ID = subprocess.Popen(fileLocation, creationflags=0x08000000)
-        return ID.wait()
+        if platform.system() == "Windows":
+            fileLocation = "binaries\ListConnectedStandaDevices.exe " + str(id_code)
+            ID = subprocess.Popen(fileLocation, creationflags=0x08000000)
+            return ID.wait()
+        else:
+            print "Not Windows - Returning " + str(id_code)
+            return id_code
 
 
 class ControllerInterface(object):
     device_id = 0
 
-    def __init__(self, device_id, reverse = False):
+    def __init__(self, device_id, reverse=False):
         self.device_id = device_id
         self.reverse = reverse
+        self.windows = False
+        if platform.system() == "Windows":
+            self.windows = True
 
-    def talk(self, parameterString = ""):
-        fileLocation = "binaries\StandaStepperMotorController.exe " + \
-            str(self.device_id) + " " + parameterString
-        result = subprocess.Popen(fileLocation, creationflags=0x08000000)
-        return result.wait()
+    def talk(self, parameterString=""):
+        if self.windows:
+            fileLocation = "binaries\StandaStepperMotorController.exe " + \
+                str(self.device_id) + " " + parameterString
+            result = subprocess.Popen(fileLocation, creationflags=0x08000000)
+            return result.wait()
+        else:
+            print "Motor Instruction: " + str(self.device_id) + " " + parameterString
+            return 0
 
     def powerOn(self):
         return self.talk("on")
