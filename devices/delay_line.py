@@ -1,4 +1,4 @@
-import translation_stage
+from . import translation_stage
 
 
 class Delay_Line(object):

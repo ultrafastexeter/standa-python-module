@@ -1,6 +1,6 @@
-import delay_line
-import translation_stage
-from Standa_8MR151 import Standa_8MR151
+import devices.delay_line
+import device.translation_stage
+from devices.Standa_8MR151 import Standa_8MR151
 
 
 try:

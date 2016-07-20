@@ -1,11 +1,11 @@
-import Standa_USBhF
+from ..interface import Standa_USBhF
 
 
 class Standa_Translation_Stage(object):
     micrometresPerPulse = (1.25 * 200) / 1200
     pulsesPerMicrometre = 1 / micrometresPerPulse
 
-    def __init__(self, controllerCode, micrometresPerWheelStep = 1.25, reverse = False):
+    def __init__(self, controllerCode, micrometresPerWheelStep=1.25, reverse=False):
         self.micrometresPerPulse = (micrometresPerWheelStep * 200) / 1200
         self.pulsesPerMicrometre = 1 / self.micrometresPerPulse
 

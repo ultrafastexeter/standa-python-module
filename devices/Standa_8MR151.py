@@ -1,4 +1,4 @@
-import Standa_USBhF
+from ..interface import Standa_USBhF
 
 
 class Standa_8MR151(object):
@@ -6,7 +6,7 @@ class Standa_8MR151(object):
     pulsesPerDegree = pulsesPerRev / 360
     degreesPerPulse = 1 / pulsesPerDegree
 
-    def __init__(self, controllerCode, reverse = True):
+    def __init__(self, controllerCode, reverse=True):
         self.device_id = Standa_USBhF.ListDevices.getDeviceID(controllerCode)
         self.controller = Standa_USBhF.ControllerInterface(self.device_id, reverse)
         self.powerOn()
