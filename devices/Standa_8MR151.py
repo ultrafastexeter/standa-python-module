@@ -41,7 +41,7 @@ class Standa_8MR151(object):
         self.saveFudgeFactor()
 
     def goHome(self):
-        self.controller.goToPosition(0 + self.fudgeFactor)
+        self.controller.goToPosition(0 - self.fudgeFactor)
 
     def getRawAngle(self):
         pulses = self.controller.getPosition()
@@ -52,7 +52,7 @@ class Standa_8MR151(object):
         return pulses * self.degreesPerPulse
 
     def setAngle(self, angle):
-        position = angle * self.pulsesPerDegree + self.fudgeFactor
+        position = angle * self.pulsesPerDegree - self.fudgeFactor
         self.controller.goToPosition(int(position))
 
     def rotateBy(self, angle):

@@ -41,18 +41,18 @@ class Standa_Translation_Stage(object):
         self.saveFudgeFactor()
 
     def goHome(self):
-        self.controller.goToPosition(0 + self.fudgeFactor)
+        self.controller.goToPosition(0 - self.fudgeFactor)
 
     def getRawPosition(self):
         pulses = self.controller.getPosition()
         return pulses * self.micrometresPerPulse
 
     def getPosition(self):
-        pulses = self.controller.getPosition() + self.fudgeFactor
+        pulses = self.controller.getPosition() - self.fudgeFactor
         return pulses * self.micrometresPerPulse
 
     def setPosition(self, micrometres):
-        position = micrometres * self.pulsesPerMicrometre + self.fudgeFactor
+        position = micrometres * self.pulsesPerMicrometre - self.fudgeFactor
         self.controller.goToPosition(int(position))
 
     def step(self, micrometres):
