@@ -1,5 +1,6 @@
 import subprocess
 import platform
+import os
 
 
 class ListDevices(object):
@@ -7,7 +8,7 @@ class ListDevices(object):
     @staticmethod
     def getDeviceID(id_code):
         if platform.system() == "Windows":
-            fileLocation = "binaries\ListConnectedStandaDevices.exe " + str(id_code)
+            fileLocation = os.path.join(os.path.dirname(__file__), 'binaries', 'ListConnectedStandaDevices.exe') + ' ' + str(id_code)
             ID = subprocess.Popen(fileLocation, creationflags=0x08000000)
             return ID.wait()
         else:
@@ -27,8 +28,7 @@ class ControllerInterface(object):
 
     def talk(self, parameterString=""):
         if self.windows:
-            fileLocation = "binaries\StandaStepperMotorController.exe " + \
-                str(self.device_id) + " " + parameterString
+            fileLocation = os.path.join(os.path.dirname(__file__), 'binaries', 'StandaStepperMotorController.exe') + ' ' + str(self.device_id) + ' ' + parameterString
             result = subprocess.Popen(fileLocation, creationflags=0x08000000)
             return result.wait()
         else:

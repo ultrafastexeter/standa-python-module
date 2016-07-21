@@ -4,7 +4,7 @@ from . import translation_stage
 class Delay_Line(object):
     speed_of_light = float(299792458)
 
-    def __init__(self, controller_code, micrometres_per_step = 1.25, reverse = False):
+    def __init__(self, controller_code, micrometres_per_step=1.25, reverse=False):
         self.stage = translation_stage.Standa_Translation_Stage(controller_code, micrometres_per_step, reverse)
 
     def getDistanceFromDelay(self, delay_ps):
